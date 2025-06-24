@@ -164,6 +164,24 @@
       background-color: #fff3f3;
       border-radius: 10px;
     }
+
+    .responsive-form {
+      position: relative;
+      width: 100%;
+      padding-bottom: 120%; /* Adjust height here */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .responsive-form iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
   </style>
 </head>
 <body>
@@ -308,7 +326,9 @@
   <div id="about" class="section">
     <h2>About Us</h2>
     <p>Ruv Restaurant is our ruvvy restaurant, where every dish is made with ruv. We are 100% homemade and locally sourced, with the freshest and ruvviest flavor in all the world! Enjoy.</p>
-  </div>
+    <img src="https://static.wixstatic.com/media/7e7ac2_5def0ee6eee44457be1a7b5a6b657c37~mv2.png" alt="About Ruv Restaurant" style="display: block; margin: 20px auto; max-width: 300px;">
+</div>
+
 
   <div id="contact" class="section">
     <h2>Contact</h2>
@@ -324,7 +344,10 @@
 
   <div id="reservation" class="section">
   <h2>Reservations</h2>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSepGYSUgEwLq6Uf9gmzhHJi3d7i6qhErBeZQbjTdKtFEKricA/viewform?embedded=true" width="640" height="1458" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <div class="responsive-form">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSepGYSUgEwLq6Uf9gmzhHJi3d7i6qhErBeZQbjTdKtFEKricA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
 </div>
 
 
