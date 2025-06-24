@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruv Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://static.wixstatic.com/media/7e7ac2_5def0ee6eee44457be1a7b5a6b657c37~mv2.png">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffaf0;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Amatic SC', cursive;
+    }
+
+    header {
+      background-color: pink;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: lightcoral;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      gap: 20px;
+    }
+
+    nav a, nav .dropdown {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav .dropdown:hover .dropbtn {
+      text-decoration: underline;
+    }
+
+    .dropdown {
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      top: 100%;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown > a {
+      display: block;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .menu-category {
+      margin-top: 30px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid #ccc;
+      padding: 20px 0;
+      transition: background-color 0.3s, border-radius 0.3s;
+    }
+
+    .menu-item:hover {
+      background-color: #fff0f0;
+      border-radius: 12px;
+    }
+
+    .menu-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #8B0000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .menu-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .menu-item img {
+        width: 80%;
+        height: auto;
+      }
+    }
+
+    .special-banner {
+      background-color: gold;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    form input, form textarea, form select {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form input[type="submit"] {
+      background-color: lightcoral;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #d85d5d;
+    }
+
+    #reservation {
+      background-color: #fff3f3;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="special-banner" id="banner">
+    🍽️ Loading today’s special...
+  </div>
+
+  <header>
+    <h1>
+      <span style="font-size: 1.5em; margin-right: 10px;">🐰</span>
+      <a href="#menu" style="color: white; text-decoration: none;">Welcome to Ruv Restaurant</a>
+      <span style="font-size: 1.5em; margin-left: 10px;">🐰</span>
+    </h1>
+    <p>Homemade goodness straight from our hearts to your table.</p>
+  </header>
+
+  <nav>
+    <div class="dropdown">
+      <a href="#menu" class="dropbtn">Menu ▾</a>
+      <div class="dropdown-content">
+        <a href="#breakfast">Breakfast</a>
+        <a href="#lunch">Lunch</a>
+        <a href="#dinner">Dinner</a>
+        <a href="#dessert">Dessert</a>
+        <a href="#drinks">Drinks</a>
+      </div>
+    </div>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#reservation">Reservations</a>
+  </nav>
+
+  <div id="menu" class="section">
+    <h2>Menu</h2>
+
+    <div id="breakfast" class="menu-category">
+      <h3>Breakfast</h3>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-clipart/20240312/original/pngtree-scrambled-eggs-on-plate-watercolor-png-image_14572349.png" alt="Scrambled Eggs">
+        <div>
+          <h4>Scrambled Eggs</h4>
+          <p>Scrambled Eggs made with herbs & spices right from our garden! Can be changed into an omelette.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="lunch" class="menu-category">
+      <h3>Lunch</h3>
+      <div class="menu-item">
+        <img src="https://static.wixstatic.com/media/7e7ac2_36cc1e674ef34bc39b0182677119a552~mv2.png/v1/fill/w_330,h_330,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Ratatouille%20PNG.png" alt="Confit Byaldi">
+        <div>
+          <h4>Confit Byaldi</h4>
+          <p>Ratatouille-inspired dish presented beautifully in a spiral pattern.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-clipart/20250506/original/pngtree-grilled-chicken-tacos-with-avocado-and-vegetables-png-image_19257709.png" alt="Chicken Tacos">
+        <div>
+          <h4>Chicken Tacos</h4>
+          <p>Lightly orange-flavored chicken tacos served right from our kitchen.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-clipart/20211116/original/pngtree-salmon-sushi-poke-bowl-with-sesame-oil-illustration-png-transparent-png-image_6940775.png" alt="Poke Bowl">
+        <div>
+          <h4>Poke Bowl</h4>
+          <p>Sustainably sourced ahi tuna with other organic toppings on white rice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="dinner" class="menu-category">
+      <h3>Dinner</h3>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-clipart/20250211/original/pngtree-plate-of-delicious-lasagna-topped-with-fresh-basil-and-layers-melted-png-image_20419396.png" alt="Lasagna">
+        <div>
+          <h4>Lasagna</h4>
+          <p>Homemade lasagna made with sausage and ricotta cheese.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-clipart/20240719/original/pngtree-vector-gradient-cartoon-spaghetti-and-meatballs-png-image_15589706.png" alt="Spaghetti and Meatballs">
+        <div>
+          <h4>Spaghetti and Meatballs</h4>
+          <p>100% Grassfed beef meatballs topped with basil and freshly grated parmesan cheese on spaghetti.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="dessert" class="menu-category">
+      <h3>Dessert</h3>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-clipart/20240316/original/pngtree-chocolate-chip-cookies-png-illustration-png-image_14600471.png" alt="Chocolate Chip Cookies">
+        <div>
+          <h4>Chocolate Chip Cookies</h4>
+          <p>Freshly baked chocolate chip cookies.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-clipart/20220125/original/pngtree-summer-ice-cream-cartoon-elements-png-image_7217522.png" alt="Ice Cream">
+        <div>
+          <h4>Ice Cream de Jour</h4>
+          <p>Chef's choice of ice cream for the day — surprise flavors await!</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="drinks" class="menu-category">
+      <h3>Drinks</h3>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-vector/20240209/ourmid/pngtree-v60-coffee-maker-vector-png-image_11715147.png" alt="Coffee">
+        <div>
+          <h4>Pour-Over Coffee</h4>
+          <p>Freshly brewed by the cup with rich, aromatic beans.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/027/329/710/non_2x/carton-of-milk-png.png" alt="Milk">
+        <div>
+          <h4>Milk</h4>
+          <p>Locally sourced whole milk served chilled.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://png.pngtree.com/png-vector/20240719/ourmid/pngtree-cartoon-lemonade-in-glass-design-png-image_12977242.png" alt="Sparkling Water">
+        <div>
+          <h4>Sparkling Juice/Water</h4>
+          <p>Choose from lemonade sparkling water, flavored sparkling water, or plain sparkling water.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://cdn.creazilla.com/cliparts/38731/wine-grape-drink-clipart-xl.png" alt="Wine">
+        <div>
+          <h4>Chef's Wine de Jour</h4>
+          <p>Chef's selection of wine for the day — ask your server for details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="section">
+    <h2>About Us</h2>
+    <p>Ruv Restaurant is our ruvvy restaurant, where every dish is made with ruv. We are 100% homemade and locally sourced, with the freshest and ruvviest flavor in all the world! Enjoy.</p>
+  </div>
+
+  <div id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: contact@ruvrestaurant.local</p>
+    <p>Instagram: @ruvrestaurant</p>
+    <form action="mailto:overduin.tajo@gmail.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message">
+    </form>
+  </div>
+
+  <div id="reservation" class="section">
+  <h2>Reservations</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSepGYSUgEwLq6Uf9gmzhHJi3d7i6qhErBeZQbjTdKtFEKricA/viewform?embedded=true" width="640" height="1458" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
+
+  <button onclick="scrollToTop()" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; border-radius: 50%; font-size: 20px; cursor: pointer;">↑</button>
+
+  <footer>
+    &copy; 2025 Ruv Restaurant. All rights reserved.
+  </footer>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const specials = [
+      "Poke Bowl",
+      "Confit Byaldi",
+      "Scrambled Eggs",
+      "Spaghetti and Meatballs",
+      "Pour-Over Coffee",
+      "Ice Cream de Jour",
+      "Chocolate Chip Cookies",
+      "Chicken Tacos",
+      "Lasagna",
+      "Chef's Wine de Jour"
+    ];
+    const randomItem = specials[Math.floor(Math.random() * specials.length)];
+    document.getElementById("banner").innerText = `🍽️ Try our new ${randomItem} today!`;
+  </script>
+
+</body>
+</html>
