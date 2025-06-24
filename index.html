@@ -18,6 +18,25 @@
       font-family: 'Amatic SC', cursive;
     }
 
+    .title-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      text-align: center;
+    }
+
+.bunny {
+  font-size: 1.5em;
+}
+
+.title-text {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
     header {
       background-color: pink;
       color: white;
@@ -191,11 +210,12 @@
   </div>
 
   <header>
-    <h1>
-      <span style="font-size: 1.3em; margin-right: 10px;">🐰</span>
-      <a href="#menu" style="color: white; text-decoration: none;">Welcome to Ruv Restaurant</a>
-      <span style="font-size: 1.3em; margin-left: 10px;">🐰</span>
+    <h1 class="title-flex">
+      <span class="bunny">🐰</span>
+      <a href="#menu" class="title-text">Welcome to Ruv Restaurant</a>
+      <span class="bunny">🐰</span>
     </h1>
+
     <p>Homemade goodness straight from our hearts to your table.</p>
   </header>
 
