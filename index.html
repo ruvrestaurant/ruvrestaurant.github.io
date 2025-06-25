@@ -201,10 +201,116 @@
       border: none;
     }
 
+    .dark-mode {
+      background-color: #111;
+      color: #eee;
+    }
+
+    .dark-mode header {
+      background-color: #333;
+    }
+
+    .dark-mode nav {
+      background-color: #444;
+    }
+
+    .dark-mode .special-banner {
+      background-color: #666;
+      color: white;
+    }
+
+.dark-mode a {
+  color: #fdd;
+}
+
+
   </style>
 </head>
-<body>
 
+<button onclick="openFeedback()" style="position: fixed; bottom: 80px; right: 20px; padding: 12px 16px; background-color: lightcoral; color: white; border: none; border-radius: 30px; cursor: pointer; z-index: 999;">
+  💬 Chat with Chef Ruv!
+</button>
+
+<script>
+  // Everything in here will run after the page loads
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // 🔆 OPEN/CLOSED STATUS
+    const now = new Date();
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+    const isOpen = (hour > 6 || (hour === 6 && minutes >= 30)) && hour < 21;
+
+    const statusBanner = document.getElementById("statusBanner");
+    if (statusBanner) {
+      statusBanner.style.backgroundColor = isOpen ? "lightgreen" : "lightgray";
+      statusBanner.textContent = isOpen
+        ? "🟢 We’re open now! Come dine with us."
+        : "🔴 Sorry, we’re currently closed. See you between 6:30am and 9pm!";
+
+    }
+
+    // 🌙 DARK MODE TOGGLE
+    const toggle = document.getElementById("darkToggle");
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+      });
+    }
+
+    // 🍽️ DISH OF THE DAY
+    const menuItems = [
+      {
+        name: "Scrambled Eggs",
+        img: "https://png.pngtree.com/png-clipart/20240312/original/pngtree-scrambled-eggs-on-plate-watercolor-png-image_14572349.png",
+        desc: "Scrambled Eggs made with herbs & spices right from our garden!"
+      },
+      {
+        name: "Poke Bowl",
+        img: "https://png.pngtree.com/png-clipart/20211116/original/pngtree-salmon-sushi-poke-bowl-with-sesame-oil-illustration-png-transparent-png-image_6940775.png",
+        desc: "Sustainably sourced ahi tuna with organic toppings on white rice."
+      },
+      {
+        name: "Lasagna",
+        img: "https://png.pngtree.com/png-clipart/20250211/original/pngtree-plate-of-delicious-lasagna-topped-with-fresh-basil-and-layers-melted-png-image_20419396.png",
+        desc: "Homemade lasagna with sausage and ricotta cheese."
+      },
+      {
+        name: "Chef's Wine de Jour",
+        img: "https://pngimg.com/uploads/wine/wine_PNG84717.png",
+        desc: "Chef's selection of wine for the day — ask your server for details."
+      }
+    ];
+
+    const dish = menuItems[Math.floor(Math.random() * menuItems.length)];
+    const container = document.getElementById("dishSpotlight");
+    if (container) {
+      container.innerHTML = `
+        <img src="${dish.img}" alt="${dish.name}">
+        <div>
+          <h4>${dish.name}</h4>
+          <p>${dish.desc}</p>
+        </div>
+      `;
+    }
+
+  });
+
+  // 💬 FEEDBACK BUTTON (doesn't need to wait for DOM)
+  function openFeedback() {
+    window.location.href = "mailto:overduin.tajo@gmail.com?subject=Ruv%20Restaurant%20Feedback";
+  }
+
+  // ☝️ Scroll to Top (already working, but safe to move here)
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+
+
+<body>
+  <button id="darkToggle" style="position: fixed; top: 10px; right: 10px; padding: 6px 10px; background: black; color: white; border: none; border-radius: 8px; cursor: pointer; z-index: 999;">🌙</button>
   <div class="special-banner" id="banner">
     🍽️ Loading today’s special...
   </div>
@@ -218,6 +324,16 @@
 
     <p>Homemade goodness straight from our hearts to your table.</p>
   </header>
+
+  <div id="statusBanner" class="special-banner"></div>
+
+  <div class="section" id="spotlight">
+    <h2>🍽️ Dish of the Day</h2>
+    <div id="dishSpotlight" class="menu-item">
+      <p>Loading today's special...</p>
+    </div>
+  </div>
+
 
   <nav>
     <div class="dropdown">
@@ -370,6 +486,17 @@
 
 </div>
 
+<div class="section" id="location">
+  <h2>📍 Find Us</h2>
+  <p>We’re located at 17 Chasemount Court, Baltimore, MD!</p>
+  <iframe
+    src="https://www.google.com/maps?q=17+Chasemount+Court,+Baltimore,+MD&output=embed"
+    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+  </iframe>
+</div>
+
+
+
 
   <button onclick="scrollToTop()" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; border-radius: 50%; font-size: 20px; cursor: pointer;">↑</button>
 
@@ -396,6 +523,39 @@
     ];
     const randomItem = specials[Math.floor(Math.random() * specials.length)];
     document.getElementById("banner").innerText = `🍽️ Try our new ${randomItem} today!`;
+
+    const menuItems = [
+    {
+      name: "Scrambled Eggs",
+      img: "https://png.pngtree.com/png-clipart/20240312/original/pngtree-scrambled-eggs-on-plate-watercolor-png-image_14572349.png",
+      desc: "Scrambled Eggs made with herbs & spices right from our garden!"
+    },
+    {
+      name: "Poke Bowl",
+      img: "https://png.pngtree.com/png-clipart/20211116/original/pngtree-salmon-sushi-poke-bowl-with-sesame-oil-illustration-png-transparent-png-image_6940775.png",
+      desc: "Sustainably sourced ahi tuna with organic toppings on white rice."
+    },
+    {
+      name: "Lasagna",
+      img: "https://png.pngtree.com/png-clipart/20250211/original/pngtree-plate-of-delicious-lasagna-topped-with-fresh-basil-and-layers-melted-png-image_20419396.png",
+      desc: "Homemade lasagna with sausage and ricotta cheese."
+    },
+    {
+      name: "Chef's Wine de Jour",
+      img: "https://media.liquormax.com/gpbczbkzgpcma2dblindk/cat-icon-wine.png",
+      desc: "Chef's selection of wine for the day — ask your server for details."
+    }
+  ];
+
+  const dish = menuItems[Math.floor(Math.random() * menuItems.length)];
+  const container = document.getElementById("dishSpotlight");
+  container.innerHTML = `
+    <img src="${dish.img}" alt="${dish.name}">
+    <div>
+      <h4>${dish.name}</h4>
+      <p>${dish.desc}</p>
+    </div>
+  `;
   </script>
 
 </body>
