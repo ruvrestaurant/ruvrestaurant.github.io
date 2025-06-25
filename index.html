@@ -257,12 +257,24 @@
     }
 
     // 🌙 DARK MODE TOGGLE
-    const toggle = document.getElementById("darkToggle");
-    if (toggle) {
-      toggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-      });
-    }
+    // DARK MODE TOGGLE WITH ICON + SAVED PREFERENCE
+const toggle = document.getElementById("darkToggle");
+const icon = document.getElementById("darkIcon");
+
+// Apply saved mode on load
+if (localStorage.getItem("darkMode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  icon.textContent = "☀️"; // sun for dark mode
+} else {
+  icon.textContent = "🌙"; // moon for light mode
+}
+
+toggle.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-mode");
+  localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+  icon.textContent = isDark ? "☀️" : "🌙";
+});
+
 
     // 🍽️ DISH OF THE DAY
     const menuItems = [
@@ -316,7 +328,9 @@
 
 
 <body>
-  <button id="darkToggle" style="position: fixed; top: 10px; right: 10px; padding: 6px 10px; background: black; color: white; border: none; border-radius: 8px; cursor: pointer; z-index: 999;">🌙</button>
+  <button id="darkToggle" style="position: fixed; top: 10px; right: 10px; padding: 6px 10px; background: black; color: white; border: none; border-radius: 8px; cursor: pointer; z-index: 999;">
+    <span id="darkIcon">🌙</span>
+  </button>
   <div class="special-banner" id="banner">
     🍽️ Loading today’s special...
   </div>
